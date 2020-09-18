@@ -1,19 +1,18 @@
-
 require('dotenv/config');
 const express = require('express');
 const nodemailer = require('nodemailer');
 
 const db = require('./database');
 const staticMiddleware = require('./static-middleware');
-const sessionMiddleware = require('./session-middleware');
 
 const app = express();
 
 app.use(staticMiddleware);
-app.use(sessionMiddleware);
 app.use(express.json());
 
-async function main(guestInfo) {
+// const contact = document.getElementById('contact')
+
+async function main() {
   const transport = nodemailer.createTransport({
     host: 'reitanfamily.com',
     port: 465,
@@ -38,6 +37,10 @@ async function main(guestInfo) {
   // eslint-disable-next-line no-console
   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 }
+
+app.post('/api/contact'. (req, res)=>{
+  main().catch(console.error)
+})
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
