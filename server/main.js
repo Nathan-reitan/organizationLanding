@@ -1,27 +1,24 @@
+/* eslint-disable */
+
 require('dotenv/config');
 const express = require('express');
 const nodemailer = require('nodemailer');
 
-const db = require('./database');
 const staticMiddleware = require('./static-middleware');
 
 const app = express();
 
-const button = document.getElementById('contactButton')
-
 app.use(staticMiddleware);
 app.use(express.json());
 
-// const contact = document.getElementById('contact')
-
-function handleSubmit(event){
+function handleSubmit(event) {
   event.preventDefault();
-  let first = document.getElementById('first').value
-  let last = document.getElementById('last').value
-  let phone = document.getElementById('phone').value
-  let email = document.getElementById('email').value
-  let message = document.getElementById('message').value
-  console.log(first)
+  const first = document.getElementById('first').value;
+  const last = document.getElementById('last').value;
+  const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  console.log(first, last, phone, email, message);
 }
 
 async function main() {
@@ -42,7 +39,7 @@ async function main() {
     text: `
       Success
     `,
-    html: `<h1>Success</h1>`
+    html: '<h1>Success</h1>'
   });
   // eslint-disable-next-line no-console
   console.log('Message send" %s', info.messageId);
@@ -50,11 +47,9 @@ async function main() {
   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 }
 
-app.post('/api/contact'. (req, res)=>{
-  main().catch(console.error)
-})
-
-button.addEventListener('click', handleSubmit())
+app.post('/api/contact', (req, res) => {
+  main().catch(console.error);
+});
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
