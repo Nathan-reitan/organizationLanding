@@ -16,23 +16,23 @@ export default function form(props) {
         <form className="d-flex flex-wrap flex-column" id="contact">
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="first">First Name:</label>
-            <input type="text" name="first" id="first" className="w-50" required/>
+            <input type="text" name="first" id="first" className="w-50" onChange={props.handleChange} required/>
           </div>
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="last">Last Name:</label>
-            <input type="text" name="last" id="last" className="w-50" required/>
+            <input type="text" name="last" id="last" className="w-50" onChange={props.handleChange} required/>
           </div>
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="phone">Phone Number:</label>
-            <input type="text" name="phone" id="phone" className="w-50" required/>
+            <input type="text" name="phone" id="phone" className="w-50" onChange={props.handleChange} required/>
           </div>
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="email">Email:</label>
-            <input type="text" name="email" id="email" className="w-50" required/>
+            <input type="text" name="email" id="email" className="w-50" onChange={props.handleChange} required/>
           </div>
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="message">Message:</label>
-            <textarea rows="10" cols="50" name="message" className="w-50" id="message"></textarea>
+            <textarea rows="10" cols="50" name="message" className="w-50" id="message" onChange={props.handleChange}></textarea>
           </div>
           <div className="d-flex flex-row-reverse m-1">
             <button onClick={props.handleSubmit}>Submit</button>

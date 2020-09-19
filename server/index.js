@@ -11,16 +11,6 @@ const app = express();
 app.use(staticMiddleware);
 app.use(express.json());
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const first = document.getElementById('first').value;
-  const last = document.getElementById('last').value;
-  const phone = document.getElementById('phone').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-  console.log(first, last, phone, email, message);
-}
-
 async function main() {
   const transport = nodemailer.createTransport({
     host: 'reitanfamily.com',
