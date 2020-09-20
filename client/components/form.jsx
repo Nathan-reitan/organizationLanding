@@ -35,7 +35,7 @@ export default function form(props) {
             <textarea rows="10" cols="50" name="message" className="w-50" id="message" onChange={props.handleChange}></textarea>
           </div>
           <div className="d-flex flex-row-reverse m-1">
-            <button type='submit' value='submit'>Submit</button>
+            <button type='submit' value='submit' className='rounded'>Submit</button>
           </div>
         </form>
       </div>
