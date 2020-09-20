@@ -13,7 +13,7 @@ export default function form(props) {
         </p>
       </div>
       <div className="border bg-light w-50">
-        <form className="d-flex flex-wrap flex-column" id="contact">
+        <form onSubmit={props.handleSubmit}className="d-flex flex-wrap flex-column" id="contact">
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="first">First Name:</label>
             <input type="text" name="first" id="first" className="w-50" onChange={props.handleChange} required/>
@@ -35,7 +35,7 @@ export default function form(props) {
             <textarea rows="10" cols="50" name="message" className="w-50" id="message" onChange={props.handleChange}></textarea>
           </div>
           <div className="d-flex flex-row-reverse m-1">
-            <button onClick={props.handleSubmit}>Submit</button>
+            <button type='submit' value='submit'>Submit</button>
           </div>
         </form>
       </div>

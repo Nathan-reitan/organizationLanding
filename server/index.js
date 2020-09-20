@@ -11,7 +11,7 @@ const app = express();
 app.use(staticMiddleware);
 app.use(express.json());
 
-async function main() {
+async function main(contactInfo) {
   const transport = nodemailer.createTransport({
     host: 'reitanfamily.com',
     port: 465,
@@ -23,13 +23,23 @@ async function main() {
   });
 
   const info = await transport.sendMail({
-    from: '"Organization testing" <nathan@reitanfamily.com>',
+    from: '"EFO - Electronic Filing Organization" <nathan@reitanfamily.com>',
     to: 'nathanreitan@gmail.com',
-    subject: 'nodemailer testing',
+    subject: `EFO Contact form from ${contactInfo.first} ${contactInfo.last}`,
     text: `
-      Success
+      Name: ${contactInfo.first} ${contactInfo.last},
+      Phone: ${contactInfo.phone},
+      Email: ${contactInfo.email},
+      Message: ${contactInfo.message}
     `,
-    html: '<h1>Success</h1>'
+    html: `<ol>
+            <li>Name: ${contactInfo.first} ${contactInfo.last},</li>
+            <li>Phone: ${contactInfo.phone},</li>
+            <li>Email: ${contactInfo.email},</li>
+            <li>Message: ${contactInfo.message},</li>
+          </ol>
+
+    `
   });
   // eslint-disable-next-line no-console
   console.log('Message send" %s', info.messageId);
@@ -38,7 +48,8 @@ async function main() {
 }
 
 app.post('/api/contact', (req, res) => {
-  main().catch(console.error);
+  const contactInfo = {first: req.body.firstName, last: req.body.lastName, phone: req.body.phone, email: req.body.email, message: req.body.message}
+  main(contactInfo).catch(console.error);
 });
 
 app.listen(process.env.PORT, () => {
