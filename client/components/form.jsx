@@ -4,19 +4,11 @@ export default function form(props) {
 
   return (
     <main className="p-1 container d-flex flex-wrap">
-      <div className="w-100">
-        <h4>
-          Our Vision:
-        </h4>
-        <p>
-          Our vision is to eliminate your overhead by providing a product that will handle your electronic filing organization.
-        </p>
-      </div>
-      <div className='bg-dark text-light p-1'>
+      <div className='bg-dark text-light p-1 my-1'>
         <h5>
           Founder:
         </h5>
-        <div className='w-100 rounded text-center'>
+        <div className='w-100 text-center px-5'>
           <img src="assets/nathan-r.jpg" alt="photo" className='w-50 rounded-circle' />
         </div>
         <p>
@@ -27,7 +19,8 @@ export default function form(props) {
           Thus, EFO was born and is here to help lighten your overhead and minimize human error.
         </p>
       </div>
-      <div className="border bg-info w-100">
+      <div className="bg-primary w-100 text-light">
+        <h3>Contact Us:</h3>
         <form onSubmit={props.handleSubmit}className="d-flex flex-wrap flex-column" id="contact">
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="first">First Name:</label>
@@ -50,7 +43,7 @@ export default function form(props) {
             <textarea rows="10" cols="50" name="message" className="w-50" id="message" onChange={props.handleChange}></textarea>
           </div>
           <div className="d-flex flex-row-reverse m-1">
-            <button type='submit' value='submit' className='rounded'>Submit</button>
+            <button type='submit' value='submit' className='rounded bg-dark text-light'>Submit</button>
           </div>
         </form>
       </div>
