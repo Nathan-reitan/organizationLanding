@@ -12,7 +12,22 @@ export default function form(props) {
           Our vision is to eliminate your overhead by providing a product that will handle your electronic filing organization.
         </p>
       </div>
-      <div className="border bg-light w-50">
+      <div className='bg-dark text-light p-1'>
+        <h5>
+          Founder:
+        </h5>
+        <div className='w-100 rounded text-center'>
+          <img src="assets/nathan-r.jpg" alt="photo" className='w-50 rounded-circle' />
+        </div>
+        <p>
+          Nathan Reitan is the founder of our company.  While he worked as a legal assitant after high school.
+          He realized while housing emails, that there must be a way to automate the whole process requiring little support from the staff.
+        </p>
+        <p>
+          Thus, EFO was born and is here to help lighten your overhead and minimize human error.
+        </p>
+      </div>
+      <div className="border bg-info w-100">
         <form onSubmit={props.handleSubmit}className="d-flex flex-wrap flex-column" id="contact">
           <div className="d-flex justify-content-between m-1">
             <label htmlFor="first">First Name:</label>
@@ -38,9 +53,6 @@ export default function form(props) {
             <button type='submit' value='submit' className='rounded'>Submit</button>
           </div>
         </form>
-      </div>
-      <div className="w-50">
-        <img src="./assets/directories.JPG" alt="" className="w-100"/>
       </div>
     </main>
   );
